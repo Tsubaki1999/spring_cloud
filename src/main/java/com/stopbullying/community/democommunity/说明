@@ -1,0 +1,16 @@
+由controller来处理浏览器的请求
+其会调用service组件去处理当前的业务
+service组件会调用dao去访问数据库
+其互相依赖的关系可以靠依赖注入来实现
+
+视图层代码放在templates和controller中
+service为业务层
+dao为数据访问层
+
+static处理GET和POST请求
+templates处理HTML请求
+
+entity为实体类用于接受数据，需要访问数据库需要在dao中建立mapper接口，接口用来写实体的方法
+再通过mapper文件夹中的.xml文件创建映射，来实现方法
+
+第一次总结，开发顺序，按照从数据库到web的顺序即dao->service->controller,
