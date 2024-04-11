@@ -1,8 +1,8 @@
 package com.stopbullying.community.democommunity.service;
 
 import com.stopbullying.community.democommunity.dao.AlphaDao;
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
