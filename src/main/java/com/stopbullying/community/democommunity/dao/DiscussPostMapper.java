@@ -1,5 +1,6 @@
 package com.stopbullying.community.democommunity.dao;
 
+import com.stopbullying.community.democommunity.controller.DiscussPostController;
 import com.stopbullying.community.democommunity.entity.DiscussPost;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -16,5 +17,14 @@ public interface DiscussPostMapper {
     // 如果只有一个参数,并且在<if>里使用,则必须加别名.动态参数
     int selectDiscussPostRows(@Param("userId") int userId);
     //查询帖子行数
+
+    //插入新的帖子
+    int insertDiscussPost(DiscussPost discussPost);
+
+    //访问详细帖子
+    DiscussPost selectDiscussPostById(int id);
+
+    //更新评论数量
+    int updateCommentCount(int id,int commentCount);
 
 }

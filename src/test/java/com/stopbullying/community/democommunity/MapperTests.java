@@ -2,9 +2,11 @@ package com.stopbullying.community.democommunity;
 
 import com.stopbullying.community.democommunity.dao.DiscussPostMapper;
 import com.stopbullying.community.democommunity.dao.LoginTicketMapper;
+import com.stopbullying.community.democommunity.dao.MessageMapper;
 import com.stopbullying.community.democommunity.dao.UserMapper;
 import com.stopbullying.community.democommunity.entity.DiscussPost;
 import com.stopbullying.community.democommunity.entity.LoginTicket;
+import com.stopbullying.community.democommunity.entity.Message;
 import com.stopbullying.community.democommunity.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +26,9 @@ public class MapperTests {
 
     @Autowired  //注入
     private UserMapper userMapper;
+
+    @Autowired
+    private MessageMapper messageMapper;
 
     @Test
     public void TestSelectUser(){
@@ -100,4 +105,27 @@ public class MapperTests {
         System.out.println(loginTicket);
     }
 
+    //测试私信筛选
+    @Test
+    public void testSelectLetters() {
+        List<Message> list = messageMapper.selectConversations(111, 0, 20);
+        for (Message message : list) {
+            System.out.println(message);
+        }
+
+        int count = messageMapper.selectConversationCount(111);
+        System.out.println(count);
+
+        list = messageMapper.selectLetters("111_112", 0, 10);
+        for (Message message : list) {
+            System.out.println(message);
+        }
+
+        count = messageMapper.selectLetterCount("111_112");
+        System.out.println(count);
+
+        count = messageMapper.selectLetterUnreadCount(131, "111_131");
+        System.out.println(count);
+
+    }
 }

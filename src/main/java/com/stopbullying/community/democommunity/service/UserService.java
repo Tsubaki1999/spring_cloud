@@ -84,7 +84,8 @@ public class UserService implements CommunityConstant {
         user.setType(0);
         user.setStatus(0);
         user.setActivationCode(CommunityUtil.generateUUID());//设置激活码邮件
-        user.setHeaderUrl(String.format("http://images.nowcoder.com/head/%dt.png", new Random().nextInt(1000)));//截取随机头像
+        //user.setHeaderUrl(String.format("http://images.nowcoder.com/head/%dt.png", new Random().nextInt(1000)));//截取随机头像
+        user.setHeaderUrl(String.format("https://tse3-mm.cn.bing.net/th/id/OIP-C.gMc7N3SjW_RA54caS-D5YgAAAA?rs=1&pid=ImgDetMain"));
         user.setCreateTime(new Date());//设置创建时间
         userMapper.insertUser(user);//插入用户
 
